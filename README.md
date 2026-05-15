@@ -1,17 +1,17 @@
-# 🌤️ Lahore Hourly Weather Data (2020–2025)
+# 📚 Goodreads Fiction Books Dataset (25,000 Books)
 
-An end-to-end data engineering project — fetching, cleaning, feature engineering, and visualizing 5 years of hourly weather data for Lahore, Pakistan using a real REST API.
+An end-to-end web scraping project — scraping, cleaning, and feature engineering 25,000 fiction books from Goodreads using Python and BeautifulSoup.
 
 ---
 
 ## 📌 Project Overview
 
-This project demonstrates a complete data pipeline:
+This project demonstrates a complete web scraping pipeline:
 
-1. **Data Collection** — Fetched 5 years of hourly weather data from the Open-Meteo Archive API
-2. **Data Cleaning** — Handled nulls, removed duplicates, fixed data types
-3. **Feature Engineering** — Extracted time features, added season and weather description columns
-4. **Exploratory Data Analysis** — Visualized temperature trends, rainfall patterns, and seasonal distributions
+1. **Web Scraping** — Scraped 500 pages of fiction books from Goodreads shelf
+2. **Data Cleaning** — Handled nulls, fixed data types, extracted structured data from messy text using Regex
+3. **Feature Engineering** — Added rating category, era, popularity, century, and clean title columns
+4. **Export** — Saved final clean dataset as CSV ready for analysis
 
 ---
 
@@ -19,51 +19,38 @@ This project demonstrates a complete data pipeline:
 
 | Property | Value |
 |---|---|
-| Source | Open-Meteo Archive API |
-| Location | Lahore, Pakistan (31.5497°N, 74.3436°E) |
-| Time Range | 2020-01-01 to 2025-01-01 |
-| Frequency | Hourly |
-| Rows | 43,872 |
-| Columns | 12 |
+| Source | Goodreads Fiction Shelf |
+| URL | goodreads.com/shelf/show/fiction |
+| Total Books | 25,000 |
+| Pages Scraped | 500 |
+| Columns | 8 |
 
 ---
 
 ## 📁 Columns
 
-| Column | Description | Unit |
-|---|---|---|
-| `time` | Datetime of observation | datetime |
-| `temperature_2m` | Temperature at 2m height | °C |
-| `relative_humidity_2m` | Relative humidity | % |
-| `precipitation` | Rainfall amount | mm |
-| `wind_speed_10m` | Wind speed at 10m | km/h |
-| `weathercode` | WMO weather condition code | - |
-| `year` | Extracted year | - |
-| `month` | Extracted month | - |
-| `day` | Extracted day | - |
-| `hour` | Extracted hour | - |
-| `season` | Season (Winter/Spring/Summer/Autumn) | - |
-| `weather_description` | Human readable weather condition | - |
-
----
-
-## 📈 Visualizations
-
-- Average monthly temperature trend
-- Total monthly precipitation (rainiest months)
-- Temperature distribution by season (boxplot)
-- Average temperature by hour of day
-- Yearly average temperature trend (2020–2025)
-- Weather conditions distribution
+| Column | Description |
+|---|---|
+| `name` | Full book title with format |
+| `clean_title` | Book title without format (Paperback, Hardcover etc) |
+| `author` | Author name |
+| `avg_rating` | Average rating (0-5) |
+| `num_ratings` | Total number of ratings |
+| `year_published` | Year the book was published |
+| `rating_category` | Excellent / Good / Average / Below Average |
+| `era` | Classic / Modern / Contemporary / Recent |
+| `popularity` | Viral / Very Popular / Popular / Niche |
+| `century` | 18th / 19th / 20th / 21st century |
 
 ---
 
 ## 🛠️ Tools & Technologies
 
 - **Python** — core language
+- **BeautifulSoup** — HTML parsing and web scraping
+- **Requests** — HTTP requests
 - **Pandas** — data cleaning and feature engineering
-- **Matplotlib & Seaborn** — data visualization
-- **REST API** — Open-Meteo Archive API
+- **Regex** — extracting structured data from messy text
 - **Jupyter Notebook** — development environment
 
 ---
@@ -72,10 +59,10 @@ This project demonstrates a complete data pipeline:
 
 ```bash
 # Install dependencies
-pip install requests pandas matplotlib seaborn
+pip install requests beautifulsoup4 pandas lxml
 
 # Run the notebook
-jupyter notebook weather_analysis.ipynb
+jupyter notebook goodreads_scraping.ipynb
 ```
 
 ---
@@ -83,17 +70,17 @@ jupyter notebook weather_analysis.ipynb
 ## 📂 Project Structure
 
 ```
-├── weather_analysis.ipynb   # Main Jupyter notebook
-├── weather_data_cleaned.csv # Final cleaned dataset
-└── README.md                # Project documentation
+├── goodreads_scraping.ipynb      # Main Jupyter notebook
+├── goodreads_fiction_books.csv   # Final cleaned dataset
+└── README.md                     # Project documentation
 ```
 
 ---
 
 ## 🔗 Links
 
-- 📦 Kaggle Dataset: [Lahore Hourly Weather Data 2020-2025](#)
-- 👤 LinkedIn: [Your LinkedIn Profile](#)
+- 📦 Kaggle Dataset: [https://www.kaggle.com/datasets/maherrimsha/goodreads-fiction-books-dataset-25000-books/data](#)
+- 👤 LinkedIn: [https://www.linkedin.com/in/rimsha-shaukat-ai/](#)
 
 ---
 
